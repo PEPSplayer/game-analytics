@@ -1,0 +1,6 @@
+player_id,date,level,duration_minutes,result
+P001,2026-10-01,1,12,completed
+P002,2026-10-01,2,8,failed
+P001,2026-10-02,2,15,completed
+P003,2026-10-02,3,20,quit
+P004,2026-10-03,1,10,completed
