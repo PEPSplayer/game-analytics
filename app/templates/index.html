@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Analytics</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/app.js" defer></script>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">G</div>
+                <div>
+                    <strong>Game Analytics</strong>
+                    <span>PLAYER INSIGHTS</span>
+                </div>
+            </div>
+
+            <div class="nav-label">WORKSPACE</div>
+            <div class="nav-item active">
+                <span>▦</span> Обзор
+            </div>
+            <div class="nav-item">
+                <span>◷</span> Игровые сессии
+            </div>
+            <div class="nav-item">
+                <span>▤</span> Уровни
+            </div>
+
+            <div class="sidebar-bottom">
+                <span class="status-dot"></span>
+                DEMO DATA ACTIVE
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <section class="upload-panel">
+                    <h2>Импорт данных</h2>
+                    <p>Выбери CSV-файл с игровыми сессиями</p>
+
+                    <form id="upload-form">
+                        <input type="file" id="csv-file" accept=".csv" required>
+                        <button type="submit" id="upload-button">Загрузить CSV</button>
+                        <button type="button" id="reset-button">Демо-данные</button>
+                    </form>
+
+                    <p id="upload-status"></p>
+                </section>
+                <div>
+                    <div class="eyebrow">ANALYTICS / OVERVIEW</div>
+                    <h1>Обзор игры</h1>
+                    <p class="subtitle">Анализ активности игроков за последние 7 дней</p>
+                </div>
+                <div class="demo-badge">● Демонстрационный режим</div>
+            </header>
+
+            <section class="metrics">
+                <article class="metric-card">
+                    <div class="metric-top">
+                        <span>Уникальные игроки</span>
+                        <span class="metric-icon purple">♙</span>
+                    </div>
+                    <div class="metric-value" id="players">—</div>
+                    <div class="metric-note">За выбранный период</div>
+                </article>
+
+                <article class="metric-card">
+                    <div class="metric-top">
+                        <span>Игровые сессии</span>
+                        <span class="metric-icon blue">◷</span>
+                    </div>
+                    <div class="metric-value" id="sessions">—</div>
+                    <div class="metric-note">Всего зарегистрировано</div>
+                </article>
+
+                <article class="metric-card">
+                    <div class="metric-top">
+                        <span>Среднее время</span>
+                        <span class="metric-icon green">◴</span>
+                    </div>
+                    <div class="metric-value">
+                        <span id="average-duration">—</span>
+                        <small>мин</small>
+                    </div>
+                    <div class="metric-note">На одну сессию</div>
+                </article>
+
+                <article class="metric-card">
+                    <div class="metric-top">
+                        <span>Пройдено сессий</span>
+                        <span class="metric-icon orange">✓</span>
+                    </div>
+                    <div class="metric-value" id="completed">—</div>
+                    <div class="metric-note">Результат completed</div>
+                </article>
+            </section>
+
+            <section class="panel chart-panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Активность игроков</h2>
+                        <p>Количество игровых сессий по дням</p>
+                    </div>
+                    <span class="chart-legend">
+                        <span class="legend-dot"></span> Сессии
+                    </span>
+                </div>
+                <div class="chart-container">
+                    <canvas id="sessions-chart"></canvas>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Аналитика уровней</h2>
+                        <p>Результаты игровых сессий по каждому уровню</p>
+                    </div>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Уровень</th>
+                                <th>Сессии</th>
+                                <th>Пройдено</th>
+                                <th>Поражения</th>
+                                <th>Выходы</th>
+                                <th>Доля прохождений</th>
+                            </tr>
+                        </thead>
+                        <tbody id="levels-table">
+                            <tr>
+                                <td colspan="6">Загрузка данных...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <footer>
+                Game Analytics <span>·</span> Учебный демонстрационный проект
+                <span class="footer-right">Version 0.1.0</span>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
